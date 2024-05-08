@@ -3,6 +3,7 @@ logs/
 
 # Output
 output/
+data/
 
 # PyCharm
 .idea/
