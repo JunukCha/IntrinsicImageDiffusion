@@ -13,7 +13,7 @@ defaults:
 
 data:
   dataset_cfg:
-    root: 
+    root: ${paths.data_dir}test/
     features_to_include: [ "im", "albedo", "material", "normal", "depth" ]
     transform:
       _target_: iid.data.BatchTransform
