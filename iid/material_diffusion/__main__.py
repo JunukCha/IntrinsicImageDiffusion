@@ -86,9 +86,9 @@ def material_diffusion(cfg: DictConfig):
         to_pil = ToPILImage()
         if not cfg.output.as_dataset:
             # Save with suffix
-            to_pil(preds[:3]).save(os.path.join(out_folder, f"{image_id}_albedo.png"))
-            to_pil(preds[3]).save(os.path.join(out_folder, f"{image_id}_roughness.png"))
-            to_pil(preds[4]).save(os.path.join(out_folder, f"{image_id}_metal.png"))
+            to_pil(preds[:3]).save(os.path.join(out_folder, f"albedo/{image_id}.png"))
+            to_pil(preds[3]).save(os.path.join(out_folder, f"roughness/{image_id}.png"))
+            to_pil(preds[4]).save(os.path.join(out_folder, f"material/{image_id}.png"))
         else:
             # Save as dataset
             writeEXR(preds[:3].cpu().permute(1, 2, 0).numpy(), os.path.join(out_folder, "albedo", f"{image_id}.exr"))

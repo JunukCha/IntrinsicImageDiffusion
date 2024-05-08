@@ -76,8 +76,8 @@ def geometry_prediction(cfg: DictConfig):
         if not cfg.output.as_dataset:
             # Save with suffix
             to_pil(NormalizeRange(output_range=[0., 1.])(preds[0])).save(
-                os.path.join(out_folder, f"{image_id}_depth.png"))
-            to_pil((preds[1:] + 1) / 2).save(os.path.join(out_folder, f"{image_id}_normal.png"))
+                os.path.join(out_folder, f"depth/{image_id}.png"))
+            to_pil((preds[1:] + 1) / 2).save(os.path.join(out_folder, f"normal/{image_id}.png"))
         else:
             # Save as dataset
             writeEXR(preds[:1].cpu().permute(1, 2, 0).numpy(), os.path.join(out_folder, "depth", f"{image_id}.exr"))
