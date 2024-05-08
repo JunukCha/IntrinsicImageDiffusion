@@ -8,6 +8,7 @@ def main(args):
     os.makedirs(f"data/{folder_name}/normal", exist_ok=True)
     os.makedirs(f"data/{folder_name}/im", exist_ok=True)
     os.makedirs(f"data/{folder_name}/material", exist_ok=True)
+    os.makedirs(f"data/{folder_name}/roughness", exist_ok=True)
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
