@@ -11,9 +11,11 @@ defaults:
 
 # ======================== DATAMODULE ============================
 
+folder_name: test_out
+
 data:
   dataset_cfg:
-    root: ${paths.data_dir}test_out/
+    root: ${paths.data_dir}${folder_name}/
     features_to_include: [ "im", "albedo", "material", "normal", "depth" ]
     transform:
       _target_: iid.data.BatchTransform
@@ -38,7 +40,7 @@ data:
 
 # ======================== MODEL ============================
 
-ckpt_path: ${paths.data_dir}test_out/lighting/0.ckpt
+ckpt_path: ${paths.data_dir}${folder_name}/lighting/0.ckpt
 model:
   lighting_model:
     lightings:
