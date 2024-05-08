@@ -11,9 +11,11 @@ defaults:
 
 # ======================== DATAMODULE ============================
 
+folder_name: test
+
 data:
   dataset_cfg:
-    root: ${paths.data_dir}test/
+    root: ${paths.data_dir}${folder_name}/
     features_to_include: [ "im", "albedo", "material", "normal", "depth" ]
     transform:
       _target_: iid.data.BatchTransform
@@ -119,7 +121,7 @@ callbacks:
   file_copy:
     _target_: iid.lighting_optimization.callbacks.FileCopy
     src: ${callbacks.model_checkpoint.dirpath}/last.ckpt
-    dst: ${paths.data_dir}test/lighting/${data.sampling_cfg.sampler.indices.0}.ckpt
+    dst: ${paths.data_dir}${folder_name}/lighting/${data.sampling_cfg.sampler.indices.0}.ckpt
     log_schedule:
       on_fit_end: True
 
