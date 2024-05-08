@@ -66,7 +66,7 @@ callbacks:
   file_copy:
     _target_: iid.lighting_optimization.callbacks.FileCopy
     src: ${paths.output_dir}wandb/latest-run/files/media/images/
-    dst: ${paths.root_dir}output/rendering/
+    dst: ${paths.root_dir}output/rendering/${folder_name}
 
 # ======================== ENVIRONMENT ============================
 
