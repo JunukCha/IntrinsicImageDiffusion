@@ -47,6 +47,7 @@ def readPNG(filename):
     if not filename:
         raise ValueError("Empty filename")
     image = (np.asarray(Image.open(filename).convert("RGB")) / 255.0).astype(np.float32)
+    print(sum(image))
     return image
 
 
