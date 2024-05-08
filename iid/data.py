@@ -243,9 +243,9 @@ class IIDDataset(VisionDataset):
         self.module_logger.debug("Collecting features")
         data['samples'] = Batch(default=Batch)
 
-        # for sample_id in data['sample_ids']:
-        #     for feature in self.features_to_include:
-        #         data['samples'][sample_id][feature] = os.path.join(self.root, feature, sample_id)
+        for sample_id in data['sample_ids']:
+            for feature in self.features_to_include:
+                data['samples'][sample_id][feature] = os.path.join(feature)
 
         return data
 
