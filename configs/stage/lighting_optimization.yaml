@@ -71,7 +71,7 @@ callbacks:
     save_weights_only: True
     every_n_train_steps: null
     train_time_interval: null
-    every_n_epochs: 100
+    every_n_epochs: 1000000
     dirpath: ${paths.output_dir}/checkpoints
     mode: "min"
     save_last: True
