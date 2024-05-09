@@ -6,6 +6,8 @@ from pytorch_lightning import Trainer
 
 from iid.utils import init_logger
 
+import time
+
 
 def lighting_optimization(cfg: DictConfig):
     module_logger = init_logger("LightingOptimization_MAIN")
@@ -64,7 +66,9 @@ def lighting_optimization(cfg: DictConfig):
     trainer: Trainer = hydra.utils.instantiate(cfg.trainer, callbacks=callbacks, logger=logger)
 
     # ============= OPTIMIZATION =============
+    start_time = time.time()
     trainer.fit(model=model, datamodule=datamodule, ckpt_path=cfg.get("ckpt_path"))
+    print("Time:", time.time()-start_time)
 
 
 @hydra.main(version_base="1.3", config_path="../../configs", config_name="stage/lighting_optimization.yaml")
